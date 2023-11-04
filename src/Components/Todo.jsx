@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react'; // Import useEffect from 'react'
 import "./CSS/Todo.css";
-import {useRef} from 'react';
+import Todoitems from './Todoitems';
 
 let count = 0;
 const Todo = () => {
@@ -39,7 +39,11 @@ const Todo = () => {
         </div>
       </div>
 
-      <div className="todo-list"></div>
+      <div className="todo-list">
+        {todos.map((item, index) =>{
+          return <Todoitems key={index} no={item.no} display={item.display} text={item.text} />
+        })}
+      </div>
     </div>
   );
 };
